@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+    my_jupyter:
+        image: jupyter/pyspark-notebook:latest
+        user: root
+        environment:
+            GRANT_SUDO: "yes"
+            JUPYTER_ENABLE_LAB: "yes"
+        volumes:
+                - ./:/home/jovyan/work    
+        ports:
+          - 8888:8888
+          - 4040-4080:4040-4080
+          - 18080:18080
+        container_name: jupyter_notebook_test
+        command: "start-notebook.sh --NotebookApp.token="    
